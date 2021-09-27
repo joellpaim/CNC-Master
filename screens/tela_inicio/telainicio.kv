@@ -1,6 +1,7 @@
 <TelaInicial>
     name: 'TelaInicial'
     md_bg_color: app.theme_cls.primary_color
+    on_enter: root.call()
 
     MDToolbar:
         title: "CNC Master"
@@ -10,18 +11,18 @@
         right_action_items: [["dots-vertical", lambda x: app.calcular()]]
 
     MDBoxLayout:
-        pos_hint: {'center_x': 0.5, 'center_y': 0.48}
-        size_hint: 0.95, 0.8
-        radius: [10, 10, 10, 10]
-        md_bg_color: 1, 1, 1, .35
+        pos_hint: {'center_x': 0.5, 'center_y': 0.58}
+        size_hint: 0.95, 0.5
+        radius: [10, 100, 10, 10]
+        md_bg_color: 1, 1, 1, 1
 
 
         MDGridLayout:
             pos_hint: {"top": 0.95}
             size_hint: 0.5, 0.9
             cols: 2
-            spacing: 5
-            padding: 5
+            spacing: 15
+            padding: 25
 
 
             MDRaisedButton:
@@ -30,7 +31,7 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
-                on_press:
+                on_release:
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'TelaBrocas'
 
@@ -40,7 +41,7 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
-                on_press:
+                on_release:
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'TelaMachos'
 
@@ -51,7 +52,7 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
-                on_press:
+                on_release:
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'TelaInsertos'
 
@@ -78,6 +79,24 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
+
+            MDRaisedButton:
+                text: "[color=#ffffff]Mostrar[/color]"
+                bold: True
+                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                size_hint_x: 0.8
+                size_hint_y: 0.05
+                elevation: 10
+                on_release: root.call()
+
+            MDRaisedButton:
+                text: "[color=#ffffff]Esconder[/color]"
+                bold: True
+                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+                size_hint_x: 0.8
+                size_hint_y: 0.05
+                elevation: 10
+                on_release: root.call2()
 
         
  

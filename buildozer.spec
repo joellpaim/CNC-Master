@@ -28,7 +28,7 @@ source.exclude_dirs = sample_data
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.2
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,https://github.com/tito/kaki/archive/refs/heads/master.zip,kivy==2.0.0,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15,pillow
+requirements = python3, hostpython2, android, jnius, kivmob,https://github.com/tito/kaki/archive/refs/heads/master.zip,kivy==2.0.0,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15,pillow
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -83,10 +83,10 @@ fullscreen = 0
 # red, blue, green, black, white, gray, cyan, magenta, yellow, lightgray,
 # darkgray, grey, lightgrey, darkgrey, aqua, fuchsia, lime, maroon, navy,
 # olive, purple, silver, teal.
-android.presplash_color = #FFFFFF
+android.presplash_color = #314057
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET, ACCESS_NETWORK_STATE
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 27
@@ -95,7 +95,7 @@ android.presplash_color = #FFFFFF
 #android.minapi = 21
 
 # (int) Android SDK version to use
-#android.sdk = 20
+#android.sdk = 24
 
 # (str) Android NDK version to use
 #android.ndk = 19b
@@ -157,7 +157,7 @@ android.presplash_color = #FFFFFF
 
 # (list) Gradle dependencies to add (currently works only with sdl2_gradle
 # bootstrap)
-#android.gradle_dependencies =
+android.gradle_dependencies = 'com.google.firebase:firebase-ads:10.2.0'
 
 # (list) add java compile options
 # this can for example be necessary when importing certain java libraries using the 'android.gradle_dependencies' option
@@ -204,7 +204,7 @@ android.presplash_color = #FFFFFF
 #android.wakelock = False
 
 # (list) Android application meta-data to set (key=value format)
-#android.meta_data =
+android.meta_data = com.google.android.gms.ads.APPLICATION_ID=ca-app-pub-6991666817854079~5689719145
 
 # (list) Android library project to add (will be added in the
 # project.properties automatically.)
@@ -214,7 +214,7 @@ android.presplash_color = #FFFFFF
 #android.uses_library =
 
 # (str) Android logcat filters to use
-#android.logcat_filters = *:S python:D
+android.logcat_filters = *:S python:D
 
 # (bool) Copy library instead of making a libpymodules.so
 #android.copy_libs = 1
@@ -234,7 +234,7 @@ android.arch = armeabi-v7a
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+p4a.branch = master
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
 #p4a.source_dir =
