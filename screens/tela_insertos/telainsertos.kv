@@ -1,0 +1,87 @@
+<TelaInsertos>
+    name: "TelaInsertos"
+    md_bg_color: [1, 1, 1, 0.5]
+
+    FloatLayout:
+
+        MDTextField:
+            id: dm
+            hint_text: "Diâmetro"
+            text: ""
+            required: False
+            helper_text: "Necessário para VC e RPM"
+            mode: "fill"
+            input_filter: "float"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            size_hint_x: 0.8
+            radius: 10, 10, 10, 10
+            color_mode: 'custom'
+            line_color_focus: 0, 0.7, 1, 1
+
+        MDTextField:
+            id: vc
+            hint_text: "Velocidade de Corte"
+            text: ""
+            mode: "fill"
+            input_filter: "float"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.78}
+            size_hint_x: 0.8
+            radius: 10, 10, 10, 10
+            color_mode: 'custom'
+            line_color_focus: 0, 0.7, 1, 1
+
+        MDTextField:
+            id: ve
+            hint_text: "Velocidade do Eixo"
+            required: False
+            helper_text: "Necessário para avanços"
+            mode: "fill"
+            input_filter: "float"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.66}
+            size_hint_x: 0.8
+            radius: 10, 10, 10, 10
+            color_mode: 'custom'
+            line_color_focus: 0, 0.7, 1, 1
+
+        MDTextField:
+            id: avre
+            hint_text: "Avanço/Rev"
+            text: ""
+            mode: "fill"
+            input_filter: "float"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.54}
+            size_hint_x: 0.8
+            radius: 10, 10, 10, 10
+            color_mode: 'custom'
+            line_color_focus: 0, 0.7, 1, 1
+
+        MDTextField:
+            id: av
+            hint_text: "Avanço"
+            text: ""
+            mode: "fill"
+            input_filter: "float"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.42}
+            size_hint_x: 0.8
+            radius: 10, 10, 10, 10
+            color_mode: 'custom'
+            line_color_focus: 0, 0.7, 1, 1
+
+        MDRaisedButton:
+            text: "Voltar"
+            md_bg_color: [0, 0.7, 1, 0.7]
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.current = "TelaInicial"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.3}
+
+        MDRaisedButton:
+            text: "Limpar"
+            md_bg_color: [0, 0.7, 1, 0.7]
+            pos_hint: {'center_x': 0.8, 'center_y': 0.3}
+
+        MDRaisedButton:
+            text: "Calcular"
+            md_bg_color: [0, 0.7, 1, 0.7]
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+

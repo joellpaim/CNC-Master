@@ -1,0 +1,105 @@
+<TelaBrocas>
+    name: 'TelaBrocas'
+    md_bg_color: app.theme_cls.primary_color
+
+    MDToolbar:
+        title: "Brocas"
+        specific_text_color: [1, 1, 1, 1]
+        pos_hint: {"top": 1}
+        elevation: 20
+        left_action_items: [["menu"]]
+        right_action_items: [["dots-vertical", lambda x: app.calcular()]]
+    
+    MDGridLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        size_hint: 0.8, 0.5
+        rows: 2
+        spacing: 25
+
+        MDBoxLayout:
+
+            size_hint: 0.95, 0.8
+            radius: [10, 10, 10, 10]
+            md_bg_color: 1, 1, 1, 1
+
+            MDGridLayout:
+                cols: 2
+                spacing: 15
+                padding: 15
+
+                MDTextField:
+                    id: dm
+                    hint_text: "Diâmetro da Broca"
+                    text: ""
+                    required: False
+                    mode: "fill"
+                    input_filter: "float"
+                    radius: 10, 10, 10, 10
+
+                MDTextField:
+                    id: vc
+                    hint_text: "Velocidade de Corte"
+                    text: ""
+                    mode: "fill"
+                    input_filter: "float"
+                    radius: 10, 10, 10, 10
+                    on_focus: root.calcular()
+
+                MDTextField:
+                    id: ve
+                    hint_text: "Velocidade do Eixo"
+                    required: False
+                    helper_text: "Necessário para avanços"
+                    mode: "fill"
+                    input_filter: "float"
+                    radius: 10, 10, 10, 10
+                    on_focus: root.calcular()
+
+                MDTextField:
+                    id: avre
+                    hint_text: "Avanço/Rev"
+                    text: ""
+                    mode: "fill"
+                    input_filter: "float"
+                    radius: 10, 10, 10, 10
+                    on_focus: root.calcular()
+
+                MDTextField:
+                    id: av
+                    hint_text: "Avanço"
+                    text: ""
+                    mode: "fill"
+                    input_filter: "float"
+                    radius: 10, 10, 10, 10
+                    on_focus: root.calcular()
+
+
+
+    MDBoxLayout:
+        pos_hint: {'center_x': 0.47, 'center_y': 0.37}
+
+        MDGridLayout:
+            cols: 3
+            spacing: 10
+            padding: 40
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            MDRaisedButton:
+                text: "[color=#ffffff]Voltar[/color]"
+                elevation: 10
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'TelaInicial'
+
+            MDRaisedButton:
+                text: "[color=#ffffff]Limpar[/color]"
+                elevation: 10
+                on_press: root.limpar()
+
+            MDRaisedButton:
+                text: "[color=#ffffff]Calcular[/color]"
+                elevation: 10
+                on_press: root.calcular()
+
+
+
