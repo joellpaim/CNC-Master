@@ -1,14 +1,13 @@
 <TelaInicial>
     name: 'TelaInicial'
     md_bg_color: app.theme_cls.primary_color
-    on_enter: root.call()
 
     MDToolbar:
         title: "CNC Master"
         specific_text_color: [1, 1, 1, 1]
         pos_hint: {"top": 1}
         elevation: 10
-        right_action_items: [["dots-vertical", lambda x: app.calcular()]]
+        right_action_items: [["dots-vertical", lambda x: app.em_breve()]]
 
     MDBoxLayout:
         pos_hint: {'center_x': 0.5, 'center_y': 0.58}
@@ -36,7 +35,7 @@
                     root.manager.current = 'TelaBrocas'
 
             MDRaisedButton:
-                text: "[color=#ffffff]Machos[/color]"
+                text: "[color=#ffffff]Rosqueamento[/color]"
                 pos_hint: {'center_x': 0.5, 'center_y': 0.8}
                 size_hint_x: 0.8
                 size_hint_y: 0.05
@@ -63,6 +62,7 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
+                on_release: app.em_breve()
 
             MDRaisedButton:
                 text: "[color=#ffffff]Rugosidade[/color]"
@@ -71,14 +71,16 @@
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
+                on_release: app.em_breve()
 
             MDRaisedButton:
-                text: "[color=#ffffff]Tempo de corte[/color]"
+                text: "[color=#ffffff]Mandrilamento[/color]"
                 bold: True
                 pos_hint: {'center_x': 0.5, 'center_y': 0.2}
                 size_hint_x: 0.8
                 size_hint_y: 0.05
                 elevation: 10
+                on_release: app.em_breve()
 
             MDRaisedButton:
                 text: "[color=#ffffff]Mostrar[/color]"

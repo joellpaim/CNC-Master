@@ -2,6 +2,9 @@
 #google.com, , DIRECT, f08c47fec0942fa0
 #ca-app-pub-6991666817854079~5689719145
 #ca-app-pub-6991666817854079/4184247549
+#from kivy.config import Config
+#Config.set('kivy', 'keyboard_mode', 'systemanddock')
+
 
 import os
 import kivy
@@ -10,10 +13,10 @@ from kaki.app import App
 from kivy.factory import Factory
 from kivy.core.window import Window
 from kivymd.uix.snackbar import Snackbar
-from kivmob import KivMob, TestIds
 from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+
 
 kivy.require('1.9.1')
 
@@ -53,19 +56,21 @@ class CNCMasterApp(MDApp, App):
 
 
     def build_app(self):
-        self.theme_cls.primary_palette = "Teal"
+        self.theme_cls.primary_palette = "BlueGray"
         self.theme_cls.color_accent = "Cyan"
         self.theme_cls.theme_style = "Light"
 
         self.icon = 'assets/icone.png'
         self.title = 'CNC Master'
         #Mostra os FPS
-        self.fps_monitor_start()
+        #self.fps_monitor_start()
 
         return Factory.MainScreenManager()
 
-    def calcular(self):
-        Snackbar(text="Funfou").open()
+    def em_breve(self):
+        Snackbar(text="Em desenvolvimento").open()
+
+
 
 
 
