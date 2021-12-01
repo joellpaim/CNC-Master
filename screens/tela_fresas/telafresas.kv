@@ -1,16 +1,17 @@
-<TelaBrocas>
-    name: 'TelaBrocas'
+<TelaFresas>
+    name: "TelaFresas"
 
     MDGridLayout:
         cols: 1
         md_bg_color: 0.5, 0.5, 0.5, 0.7
 
         MDToolbar:
-            title: "Furação"
+            title: "Fresamento"
             opposite_colors: False
             md_bg_color: app.theme_cls.primary_color
             elevation: 20
             left_action_items: [["arrow-left", lambda x: root.voltar_tela_inicial()]]
+
 
 
         MDBoxLayout:
@@ -31,12 +32,21 @@
                     radius: 25, 10, 25, 10
 
                     MDRaisedButton:
+                        text: "Avanço da Mesa"
+                        font_size: "20sp"
+                        elevation: 10
+                        size_hint_x: 0.8
+                        md_bg_color: 0.4, 0.4, 0.4, 1
+                        on_release: root.manager.set_current('TelaAvancoMesaF')
+
+                    MDRaisedButton:
                         text: "Velocidade de Corte"
                         font_size: "20sp"
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaVC')
+                        on_release: root.manager.set_current('TelaVCF')
+
 
                     MDRaisedButton:
                         text: "Velocidade do Fuso"
@@ -44,15 +54,15 @@
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaVelFuso')
+                        on_release: root.manager.set_current('TelaVelFusoF')
 
                     MDRaisedButton:
-                        text: "Taxa de Penetração"
+                        text: "Avanço por Dente"
                         font_size: "20sp"
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaTaxaPenetracao')
+                        on_release: root.manager.set_current('TelaAvancoDenteF')
 
                     MDRaisedButton:
                         text: "Avanço por Rotação"
@@ -60,7 +70,7 @@
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaAvancoRotacao')
+                        on_release: root.manager.set_current('TelaAvancoRotacaoF')
 
                     MDRaisedButton:
                         text: "Taxa de Remoção de Metal"
@@ -68,15 +78,15 @@
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaTaxaRemocaoMetal')
+                        on_release: root.manager.set_current('TelaTaxaRemocaoF')
 
                     MDRaisedButton:
-                        text: "Potência Liquida"
+                        text: "Potência Líquida"
                         font_size: "20sp"
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaPotenciaLiquida')
+                        on_release: root.manager.set_current('TelaPotenciaF')
 
                     MDRaisedButton:
                         text: "Torque"
@@ -84,17 +94,7 @@
                         elevation: 10
                         size_hint_x: 0.8
                         md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaTorque')
-
-                    MDRaisedButton:
-                        text: "Tempo de Usinagem"
-                        font_size: "20sp"
-                        elevation: 10
-                        size_hint_x: 0.8
-                        md_bg_color: 0.4, 0.4, 0.4, 1
-                        on_release: root.manager.set_current('TelaTempoUsinagem')
+                        on_release: root.manager.set_current('TelaTorqueF')
 
 
-
-
-</TelaBrocas>
+</TelaFresas>

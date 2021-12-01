@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = CNC Master
+title = CNC Factor Free
 
 # (str) Package name
-package.name = cncmaster
+package.name = cncfactorfree
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.kivymd
+package.domain = org.cncfactorfree
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,7 +28,7 @@ source.exclude_dirs = sample_data
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.2
+version = 0.7
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -36,7 +36,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, hostpython3, android, jnius, kivmob,https://github.com/tito/kaki/archive/refs/heads/master.zip,kivy==2.0.0,https://github.com/kivymd/KivyMD/archive/master.zip,pygments,sdl2_ttf==2.0.15,pillow
+requirements = python3, hostpython3, android, jnius, kivmob, https://github.com/tito/kaki/archive/refs/heads/master.zip,kivy==master, https://github.com/kivymd/KivyMD/archive/master.zip, pygments, sdl2_ttf==2.0.15, pillow
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -69,7 +69,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.9.1
+osx.kivy_version = 2.0.0
 
 #
 # Android specific
@@ -124,7 +124,7 @@ android.permissions = INTERNET, ACCESS_NETWORK_STATE
 # agreements. This is intended for automation only. If set to False,
 # the default, you will be shown the license when first running
 # buildozer.
-# android.accept_sdk_license = False
+android.accept_sdk_license = True
 
 # (str) Android entry point, default is ok for Kivy-based app
 #android.entrypoint = org.renpy.android.PythonActivity
@@ -204,7 +204,7 @@ android.gradle_dependencies = 'com.google.firebase:firebase-ads:10.2.0'
 #android.wakelock = False
 
 # (list) Android application meta-data to set (key=value format)
-android.meta_data = com.google.android.gms.ads.APPLICATION_ID=ca-app-pub-6991666817854079~5689719145
+android.meta_data = com.google.android.gms.ads.APPLICATION_ID=ca-app-pub-6991666817854079~6380597630
 
 # (list) Android library project to add (will be added in the
 # project.properties automatically.)
@@ -234,7 +234,7 @@ android.arch = armeabi-v7a
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-p4a.branch = master
+p4a.branch = develop
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
 #p4a.source_dir =

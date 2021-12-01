@@ -1,127 +1,68 @@
 <TelaMachos>
     name: "TelaMachos"
-    md_bg_color: app.theme_cls.primary_color
-
-    MDToolbar:
-        title: "Rosqueamento"
-        specific_text_color: [1, 1, 1, 1]
-        pos_hint: {"top": 1}
-        elevation: 20
-        left_action_items: [["menu", "TelaInicial"]]
-        right_action_items: [["dots-vertical", lambda x: app.calcular()]]
 
     MDGridLayout:
-        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-        size_hint: 0.8, 0.5
-        rows: 2
-        spacing: 25
+        cols: 1
+        md_bg_color: 0.5, 0.5, 0.5, 0.7
+
+        MDToolbar:
+            title: "Rosqueamento"
+            opposite_colors: False
+            md_bg_color: app.theme_cls.primary_color
+            elevation: 20
+            left_action_items: [["arrow-left", lambda x: root.voltar_tela_inicial()]]
+
+
 
         MDBoxLayout:
-            size_hint: 0.95, 0.8
-            radius: [10, 10, 10, 10]
-            md_bg_color: 1, 1, 1, 1
+            orientation: "vertical"
+            padding: "10dp"
+            pos_hint: {"top": 1}
+            radius: 25, 10, 25, 10
 
-            MDGridLayout:
-                cols: 2
-                spacing: 15
-                padding: 15
+            ScrollView:
 
-                MDTextField:
-                    id: dm
-                    hint_text: "Diâmetro do Macho"
-                    text: ""
-                    required: False
-                    helper_text: "Necessário para VC e RPM"
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.9}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-                MDTextField:
-                    id: dm
-                    hint_text: "Passo da Rosca"
-                    text: ""
-                    required: False
-                    helper_text: "Necessário para VC e RPM"
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.78}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-                MDTextField:
-                    id: vc
-                    hint_text: "Velocidade de Corte"
-                    text: ""
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.66}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-                MDTextField:
-                    id: ve
-                    hint_text: "Velocidade do Eixo"
-                    required: False
-                    helper_text: "Necessário para avanços"
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.54}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-                MDTextField:
-                    id: avre
-                    hint_text: "Avanço/Rev"
-                    text: ""
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.42}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-                MDTextField:
-                    id: av
-                    hint_text: "Avanço"
-                    text: ""
-                    mode: "fill"
-                    input_filter: "float"
-                    pos_hint: {'center_x': 0.5, 'center_y': 0.3}
-                    size_hint_x: 0.8
-                    radius: 10, 10, 10, 10
-                    color_mode: 'custom'
-                    line_color_focus: 0, 0.7, 1, 1
-
-    MDBoxLayout:
-        pos_hint: {'center_x': 0.47, 'center_y': 0.37}
-
-        MDGridLayout:
-            cols: 3
-            spacing: 10
-            padding: 40
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-
-            MDRaisedButton:
-                text: "[color=#ffffff]Voltar[/color]"
-                on_press:
-                    root.manager.transition.direction = "right"
-                    root.manager.current = "TelaInicial"
-
-            MDRaisedButton:
-                text: "[color=#ffffff]Limpar[/color]"
-
-            MDRaisedButton:
-                text: "[color=#ffffff]Calcular[/color]"
+                MDGridLayout:
+                    adaptive_height: True
+                    pos_hint: {"top": 1}
+                    cols: 1
+                    padding: "25dp"
+                    spacing: "15dp"
+                    md_bg_color: app.theme_cls.primary_color
+                    radius: 25, 10, 25, 10
 
 
+                    MDRaisedButton:
+                        text: "Velocidade do Fuso"
+                        font_size: "20sp"
+                        elevation: 10
+                        size_hint_x: 0.8
+                        md_bg_color: 0.4, 0.4, 0.4, 1
+                        on_release: root.manager.set_current('TelaVelFusoR')
+
+                    MDRaisedButton:
+                        text: "Faixa de Avanço"
+                        font_size: "20sp"
+                        elevation: 10
+                        size_hint_x: 0.8
+                        md_bg_color: 0.4, 0.4, 0.4, 1
+                        on_release: root.manager.set_current('TelaFaixaAvancoR')
+
+
+                    MDRaisedButton:
+                        text: "Torque"
+                        font_size: "20sp"
+                        elevation: 10
+                        size_hint_x: 0.8
+                        md_bg_color: 0.4, 0.4, 0.4, 1
+                        on_release: root.manager.set_current('TelaTorqueR')
+
+                    MDRaisedButton:
+                        text: "Potência"
+                        font_size: "20sp"
+                        elevation: 10
+                        size_hint_x: 0.8
+                        md_bg_color: 0.4, 0.4, 0.4, 1
+                        on_release: root.manager.set_current('TelaPotenciaR')
+
+</TelaMachos>

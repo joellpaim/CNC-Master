@@ -1,17 +1,26 @@
 from kivymd.uix.screen import MDScreen
 import math
 
-class TelaInsertos(MDScreen):
+class TelaFresas(MDScreen):
 
     def voltar_tela_inicial(self):
         self.manager.transition.direction = 'right'
         self.manager.current = 'TelaInicial'
 
-class TelaVCT(MDScreen):
+class TelaAvancoMesaF(MDScreen):
+    pass
 
-    def voltar_tela_insertos(self):
+class TelaAvancoDenteF(MDScreen):
+    pass
+
+class TelaTorqueF(MDScreen):
+    pass
+
+class TelaVCF(MDScreen):
+
+    def voltar_tela_fresas(self):
         self.manager.transition.direction = 'right'
-        self.manager.current = 'TelaInsertos'
+        self.manager.current = 'TelaFresas'
 
     def calcular(self):
         try:
@@ -27,11 +36,11 @@ class TelaVCT(MDScreen):
         except:
             self.ids.resultado.text = '0.00 m/min'
 
-class TelaVelFusoT(MDScreen):
+class TelaVelFusoF(MDScreen):
 
-    def voltar_tela_insertos(self):
+    def voltar_tela_fresas(self):
         self.manager.transition.direction = 'right'
-        self.manager.current = 'TelaInsertos'
+        self.manager.current = 'TelaFresas'
 
     def calcular(self):
         try:
@@ -44,11 +53,11 @@ class TelaVelFusoT(MDScreen):
         except:
             self.ids.resultado.text = '0 rpm'
 
-class TelaTaxaRemocaoT(MDScreen):
+class TelaTaxaRemocaoF(MDScreen):
 
-    def voltar_tela_insertos(self):
+    def voltar_tela_fresas(self):
         self.manager.transition.direction = 'right'
-        self.manager.current = 'TelaInsertos'
+        self.manager.current = 'TelaFresas'
 
     def calcular(self):
         try:
@@ -62,11 +71,11 @@ class TelaTaxaRemocaoT(MDScreen):
         except:
             self.ids.resultado.text = '0.00 cm³/min'
 
-class TelaPotenciaLiquidaT(MDScreen):
+class TelaPotenciaF(MDScreen):
 
-    def voltar_tela_insertos(self):
+    def voltar_tela_fresas(self):
         self.manager.transition.direction = 'right'
-        self.manager.current = 'TelaInsertos'
+        self.manager.current = 'TelaFresas'
 
     def calcular(self):
         try:
@@ -81,11 +90,11 @@ class TelaPotenciaLiquidaT(MDScreen):
         except:
             self.ids.resultado.text = '0.00 kW'
 
-class TelaTempoT(MDScreen):
+class TelaAvancoRotacaoF(MDScreen):
 
-    def voltar_tela_insertos(self):
+    def voltar_tela_fresas(self):
         self.manager.transition.direction = 'right'
-        self.manager.current = 'TelaInsertos'
+        self.manager.current = 'TelaFresas'
 
     def calcular(self):
         try:

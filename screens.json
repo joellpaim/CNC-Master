@@ -1,0 +1,152 @@
+{
+    "TelaInicial": {
+        "import": "from screens.tela_inicio.telainicio import TelaInicial",
+        "object": "TelaInicial()",
+        "kv": "screens/tela_inicio/telainicio.kv"
+    },
+    "TelaBrocas": {
+        "import": "from screens.tela_brocas.telabrocas import TelaBrocas",
+        "object": "TelaBrocas()",
+        "kv": "screens/tela_brocas/telabrocas.kv"
+    },
+    "TelaVC": {
+        "import": "from screens.tela_brocas.telabrocas import TelaVC",
+        "object": "TelaVC()",
+        "kv": "screens/tela_brocas/telavc.kv"
+    },
+    "TelaVelFuso": {
+        "import": "from screens.tela_brocas.telabrocas import TelaVelFuso",
+        "object": "TelaVelFuso()",
+        "kv": "screens/tela_brocas/telavelfuso.kv"
+    },
+    "TelaTaxaPenetracao": {
+        "import": "from screens.tela_brocas.telabrocas import TelaTaxaPenetracao",
+        "object": "TelaTaxaPenetracao()",
+        "kv": "screens/tela_brocas/telataxapenetracao.kv"
+    },
+    "TelaAvancoRotacao": {
+        "import": "from screens.tela_brocas.telabrocas import TelaAvancoRotacao",
+        "object": "TelaAvancoRotacao()",
+        "kv": "screens/tela_brocas/telaavancorotacao.kv"
+    },
+    "TelaTaxaRemocaoMetal": {
+        "import": "from screens.tela_brocas.telabrocas import TelaTaxaRemocaoMetal",
+        "object": "TelaTaxaRemocaoMetal()",
+        "kv": "screens/tela_brocas/telataxaremocaometal.kv"
+    },
+    "TelaPotenciaLiquida": {
+        "import": "from screens.tela_brocas.telabrocas import TelaPotenciaLiquida",
+        "object": "TelaPotenciaLiquida()",
+        "kv": "screens/tela_brocas/telapotencia.kv"
+    },
+    "TelaTorque": {
+        "import": "from screens.tela_brocas.telabrocas import TelaTorque",
+        "object": "TelaTorque()",
+        "kv": "screens/tela_brocas/telatorque.kv"
+    },
+    "TelaTempoUsinagem": {
+        "import": "from screens.tela_brocas.telabrocas import TelaTempoUsinagem",
+        "object": "TelaTempoUsinagem()",
+        "kv": "screens/tela_brocas/telatempo.kv"
+    },
+    "TelaMachos": {
+          "import": "from screens.tela_machos.telamachos import TelaMachos",
+          "object": "TelaMachos()",
+          "kv": "screens/tela_machos/telamachos.kv"
+    },
+    "TelaVelFusoR": {
+          "import": "from screens.tela_machos.telamachos import TelaVelFusoR",
+          "object": "TelaVelFusoR()",
+          "kv": "screens/tela_machos/telavelfusor.kv"
+    },
+    "TelaFaixaAvancoR": {
+          "import": "from screens.tela_machos.telamachos import TelaFaixaAvancoR",
+          "object": "TelaFaixaAvancoR()",
+          "kv": "screens/tela_machos/telafaixaavancor.kv"
+    },
+    "TelaTorqueR": {
+          "import": "from screens.tela_machos.telamachos import TelaTorqueR",
+          "object": "TelaTorqueR()",
+          "kv": "screens/tela_machos/telatorquer.kv"
+    },
+    "TelaPotenciaR": {
+          "import": "from screens.tela_machos.telamachos import TelaPotenciaR",
+          "object": "TelaPotenciaR()",
+          "kv": "screens/tela_machos/telapotenciar.kv"
+    },
+    "TelaInsertos": {
+            "import": "from screens.tela_insertos.telainsertos import TelaInsertos",
+            "object": "TelaInsertos()",
+            "kv": "screens/tela_insertos/telainsertos.kv"
+    },
+    "TelaVCT": {
+            "import": "from screens.tela_insertos.telainsertos import TelaVCT",
+            "object": "TelaVCT()",
+            "kv": "screens/tela_insertos/telavct.kv"
+    },
+    "TelaVelFusoT": {
+            "import": "from screens.tela_insertos.telainsertos import TelaVelFusoT",
+            "object": "TelaVelFusoT()",
+            "kv": "screens/tela_insertos/telavelfusot.kv"
+    },
+    "TelaTaxaRemocaoT": {
+            "import": "from screens.tela_insertos.telainsertos import TelaTaxaRemocaoT",
+            "object": "TelaTaxaRemocaoT()",
+            "kv": "screens/tela_insertos/telataxaremocaot.kv"
+    },
+    "TelaPotenciaLiquidaT": {
+            "import": "from screens.tela_insertos.telainsertos import TelaPotenciaLiquidaT",
+            "object": "TelaPotenciaLiquidaT()",
+            "kv": "screens/tela_insertos/telapotenciat.kv"
+    },
+    "TelaTempoT": {
+            "import": "from screens.tela_insertos.telainsertos import TelaTempoT",
+            "object": "TelaTempoT()",
+            "kv": "screens/tela_insertos/telatempot.kv"
+    },
+    "TelaFresas": {
+            "import": "from screens.tela_fresas.telafresas import TelaFresas",
+            "object": "TelaFresas()",
+            "kv": "screens/tela_fresas/telafresas.kv"
+    },
+    "TelaAvancoMesaF": {
+            "import": "from screens.tela_fresas.telafresas import TelaAvancoMesaF",
+            "object": "TelaAvancoMesaF()",
+            "kv": "screens/tela_fresas/telaavancomesaf.kv"
+    },
+    "TelaVCF": {
+            "import": "from screens.tela_fresas.telafresas import TelaVCF",
+            "object": "TelaVCF()",
+            "kv": "screens/tela_fresas/telavcf.kv"
+    },
+    "TelaVelFusoF": {
+            "import": "from screens.tela_fresas.telafresas import TelaVelFusoF",
+            "object": "TelaVelFusoF()",
+            "kv": "screens/tela_fresas/telavelfusof.kv"
+    },
+    "TelaAvancoDenteF": {
+            "import": "from screens.tela_fresas.telafresas import TelaAvancoDenteF",
+            "object": "TelaAvancoDenteF()",
+            "kv": "screens/tela_fresas/telaavancodentef.kv"
+    },
+    "TelaAvancoRotacaoF": {
+            "import": "from screens.tela_fresas.telafresas import TelaAvancoRotacaoF",
+            "object": "TelaAvancoRotacaoF()",
+            "kv": "screens/tela_fresas/telaavancorotf.kv"
+    },
+    "TelaTaxaRemocaoF": {
+            "import": "from screens.tela_fresas.telafresas import TelaTaxaRemocaoF",
+            "object": "TelaTaxaRemocaoF()",
+            "kv": "screens/tela_fresas/telataxaremocaof.kv"
+    },
+    "TelaPotenciaF": {
+            "import": "from screens.tela_fresas.telafresas import TelaPotenciaF",
+            "object": "TelaPotenciaF()",
+            "kv": "screens/tela_fresas/telapotenciaf.kv"
+    },
+    "TelaTorqueF": {
+            "import": "from screens.tela_fresas.telafresas import TelaTorqueF",
+            "object": "TelaTorqueF()",
+            "kv": "screens/tela_fresas/telatorquef.kv"
+    }
+}

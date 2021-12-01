@@ -1,97 +1,77 @@
 from kivymd.uix.screen import MDScreen
+import math
 
 class TelaMachos(MDScreen):
 
-    def limpar(self):
-        self.ids.dm.text = ""
-        self.ids.vc.text = ""
-        self.ids.ve.text = ""
-        self.ids.avre.text = ""
-        self.ids.av.text = ""
+    def voltar_tela_inicial(self):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'TelaInicial'
+
+class TelaVelFusoR(MDScreen):
+
+    def voltar_tela_machos(self):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'TelaMachos'
 
     def calcular(self):
         try:
+            vc = float(self.ids.vc.text)
+            d = float(self.ids.d.text)
 
-            dm = self.ids.dm.text
-            try:
-                dm = float(dm)
-                print(f"{dm:.2f}")
-            except:
-                print("dm inválido")
+            n = ((vc*1000)/(3.14*d))
 
-                ve = self.ids.ve.text
-                avre = self.ids.avre.text
-                av = self.ids.av.text
+            self.ids.resultado.text = (f"{n:.0f} rpm")
+        except:
+            self.ids.resultado.text = '0 rpm'
 
-                if av == "" and ve != "" and avre != "":
-                    try:
-                        avre = float(avre)
-                        ve = float(ve)
+class TelaFaixaAvancoR(MDScreen):
 
-                        av = (avre * ve)
-                        self.ids.av.text = (f"{av:.0f}")
-                    except:
-                        print("av inválido")
+    def voltar_tela_machos(self):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'TelaMachos'
 
-                elif avre == "" and ve != "" and av != "":
-                    try:
-                        av = float(av)
-                        ve = float(ve)
+    def calcular(self):
+        try:
+            p = float(self.ids.p.text)
+            n = float(self.ids.n.text)
 
-                        avre = (av / ve)
-                        self.ids.avre.text = (f"{avre:.2f}")
-                    except:
-                        print("avre inválido")
+            vf = (p * n)
 
-            vc = self.ids.vc.text
-            ve = self.ids.ve.text
+            self.ids.resultado.text = (f"{vf:.0f} mm/min")
+        except:
+            self.ids.resultado.text = '0 mm/min'
 
-            avre = self.ids.avre.text
-            av = self.ids.av.text
+class TelaTorqueR(MDScreen):
 
-            if vc == "":
-                try:
-                    ve = float(ve)
+    def voltar_tela_machos(self):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'TelaMachos'
 
-                    if ve >= 1:
-                        vc = ((ve * 3.14 * dm) / 1000)
-                        self.ids.vc.text = (f"{vc:.0f}")
+    def calcular(self):
+        try:
+            p = float(self.ids.p.text)
+            d = float(self.ids.d.text)
+            kc = float(self.ids.kc.text)
 
-                except:
-                    print("vc inválido")
+            md = ((math.pow(p, 2) * d * kc) / 8000)
 
-            elif ve == "":
-                try:
-                    vc = float(vc)
+            self.ids.resultado.text = (f"{md:.2f} Nm")
+        except:
+            self.ids.resultado.text = '0.00 Nm'
 
-                    if vc >= 1:
-                        ve = ((vc * 318) / dm)
-                        self.ids.ve.text = (f"{ve:.0f}")
+class TelaPotenciaR(MDScreen):
 
-                except:
-                    print("ve inválido")
+    def voltar_tela_machos(self):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'TelaMachos'
 
-            elif av == "" and ve != "" and avre != "":
-                try:
-                    avre = float(avre)
-                    ve = float(ve)
+    def calcular(self):
+        try:
+            md = float(self.ids.md.text)
+            n = float(self.ids.n.text)
 
-                    av = (avre * ve)
-                    self.ids.av.text = (f"{av:.0f}")
-                except:
-                    print("av inválido")
+            p = ((md * 2 * 3.14 * n) / 60)
 
-            elif avre == "" and ve != "" and av != "":
-                try:
-                    av = float(av)
-                    ve = float(ve)
-
-                    avre = (av / ve)
-                    self.ids.avre.text = (f"{avre:.2f}")
-                except:
-                    print("avre inválido")
-
-
-
-        except Exception as e:
-            print(f"Erro: {e}")
+            self.ids.resultado.text = (f"{p:.0f} kW")
+        except:
+            self.ids.resultado.text = '0 kW'

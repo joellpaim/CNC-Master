@@ -1,0 +1,83 @@
+<TelaAvancoRotacao>
+    name: 'TelaAvancoRotacao'
+    md_bg_color: 0.5, 0.5, 0.5, 0.7
+    on_enter: root.ids.vf.focus = True
+    on_leave:
+        root.ids.vf.text = ""
+        root.ids.n.text = ""
+
+    MDGridLayout:
+        cols: 1
+        md_bg_color: 0.5, 0.5, 0.5, 0.7
+
+        MDToolbar:
+            title: "Avanço por Rotação"
+            specific_text_color: [1, 1, 1, 1]
+            pos_hint: {"top": 1}
+            elevation: 20
+            left_action_items: [["arrow-left", lambda x: root.voltar_tela_brocas()]]
+
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "10dp"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+
+            MDGridLayout:
+                adaptive_height: True
+                pos_hint: {"top": 1}
+                cols: 1
+                padding: "25dp"
+                spacing: "35dp"
+                md_bg_color: app.theme_cls.primary_color
+                radius: 25, 10, 25, 10
+
+                MDTextField:
+                    id: vf
+                    hint_text: "Avanço mm/min"
+                    text: ""
+                    font_size: '30sp'
+                    line_color_focus: app.theme_cls.primary_color
+                    fill_color_normal: 1, 1, 1, 0.2
+                    fill_color_focus: 1, 1, 1, 0.7
+                    hint_text_color_focus: 0, 0, 0, 1
+                    hint_text_color_normal: 0, 0, 0, 0.7
+                    required: False
+                    mode: "fill"
+                    input_filter: "float"
+                    input_type: 'number'
+                    radius: 25, 10, 25, 10
+                    on_text: root.calcular()
+
+                MDTextField:
+                    id: n
+                    hint_text: "Velocidade do Fuso"
+                    text: ""
+                    font_size: '30sp'
+                    line_color_focus: app.theme_cls.primary_color
+                    fill_color_normal: 1, 1, 1, 0.2
+                    fill_color_focus: 1, 1, 1, 0.7
+                    hint_text_color_focus: 0, 0, 0, 1
+                    hint_text_color_normal: 0, 0, 0, 0.7
+                    required: False
+                    mode: "fill"
+                    input_filter: "float"
+                    input_type: 'number'
+                    radius: 25, 10, 25, 10
+                    on_text: root.calcular()
+
+                MDSeparator:
+
+                MDLabel:
+                    id: resultado
+                    text: "0.00 mm/rot"
+                    font_style: "H4"
+                    halign: "center"
+
+                MDSeparator:
+
+            MDBoxLayout:
+                size_hint: 0.95, 0.5
+
+
+</TelaAvancoRotacao>

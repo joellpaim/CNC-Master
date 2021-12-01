@@ -1,111 +1,394 @@
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import os os
+#:import Window kivy.core.window.Window
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import images_path kivymd.images_path
+#:import Clipboard kivy.core.clipboard.Clipboard
+#:import PythonLexer pygments.lexers.python.PythonLexer
+#:import webbrowser webbrowser
+#:import toast kivymd.toast.toast
+
 <TelaInicial>
     name: 'TelaInicial'
-    md_bg_color: app.theme_cls.primary_color
 
-    MDToolbar:
-        title: "CNC Master"
-        specific_text_color: [1, 1, 1, 1]
+
+    MDGridLayout:
         pos_hint: {"top": 1}
-        elevation: 10
-        right_action_items: [["dots-vertical", lambda x: app.em_breve()]]
-
-    MDBoxLayout:
-        pos_hint: {'center_x': 0.5, 'center_y': 0.58}
-        size_hint: 0.95, 0.5
-        radius: [10, 100, 10, 10]
-        md_bg_color: 1, 1, 1, 1
+        cols: 1
 
 
-        MDGridLayout:
-            pos_hint: {"top": 0.95}
-            size_hint: 0.5, 0.9
-            cols: 2
-            spacing: 15
-            padding: 25
+        MDNavigationLayout:
+            x: toolbar.height
+
+            ScreenManager:
+                id: screen_manager
+                transition: RiseInTransition(duration=.5, clearcolor=app.theme_cls.primary_color)
+
+                MDScreen:
+                    name: "scr 1"
+
+                    MDGridLayout:
+                        cols: 1
+                        md_bg_color: 0.5, 0.5, 0.5, 0.7
+
+                        MDToolbar:
+                            title: "[i]CNC FACTOR Free[/i]"
+                            id: toolbar
+                            opposite_colors: False
+                            md_bg_color: app.theme_cls.primary_color
+                            pos_hint: {"top": 1}
+                            elevation: 10
+                            right_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            padding: "10dp"
+                            pos_hint: {"top": 1}
+
+                            MDGridLayout:
+                                adaptive_height: True
+                                pos_hint: {"top": 1}
+                                cols: 1
+                                padding: "25dp"
+                                spacing: "15dp"
+                                md_bg_color: app.theme_cls.primary_color
+                                radius: 25, 10, 25, 10
 
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Furação[/color]"
-                pos_hint: {'center_x': 0.5, 'center_y': 0.95}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'TelaBrocas'
+                                MDRaisedButton:
+                                    id: btn1
+                                    text: "Furação"
+                                    font_size: "20sp"
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: root.manager.set_current('TelaBrocas')
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Rosqueamento[/color]"
-                pos_hint: {'center_x': 0.5, 'center_y': 0.8}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'TelaMachos'
+                                MDRaisedButton:
+                                    id: btn2
+                                    text: "Rosqueamento"
+                                    font_size: "20sp"
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: root.manager.set_current('TelaMachos')
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Torneamento[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.65}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'TelaInsertos'
+                                MDRaisedButton:
+                                    id: btn3
+                                    text: "Torneamento"
+                                    font_size: "20sp"
+                                    bold: True
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: root.manager.set_current('TelaInsertos')
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Fresamento[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release: app.em_breve()
+                                MDRaisedButton:
+                                    id: btn4
+                                    text: "Fresamento"
+                                    font_size: "20sp"
+                                    bold: True
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: root.manager.set_current('TelaFresas')
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Rugosidade[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.35}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release: app.em_breve()
+                                MDRaisedButton:
+                                    id: btn5
+                                    text: "Rugosidade"
+                                    font_size: "20sp"
+                                    bold: True
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: app.em_breve()
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Mandrilamento[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release: app.em_breve()
+                                MDRaisedButton:
+                                    id: btn6
+                                    text: "Mandrilamento"
+                                    font_size: "20sp"
+                                    bold: True
+                                    size_hint_x: 0.8
+                                    md_bg_color: 0.4, 0.4, 0.4, 1
+                                    elevation: 10
+                                    on_release: app.em_breve()
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Mostrar[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release: root.call()
+                            MDBoxLayout:
+                                size_hint: 0.95, 0.5
 
-            MDRaisedButton:
-                text: "[color=#ffffff]Esconder[/color]"
-                bold: True
-                pos_hint: {'center_x': 0.5, 'center_y': 0.2}
-                size_hint_x: 0.8
-                size_hint_y: 0.05
-                elevation: 10
-                on_release: root.call2()
 
+
+                MDScreen:
+                    name: "scr 2"
+
+
+                    MDGridLayout:
+                        cols: 1
+                        md_bg_color: 0.5, 0.5, 0.5, 0.7
+
+                        MDToolbar:
+                            title: "Configurações"
+                            id: toolbar
+                            opposite_colors: False
+                            md_bg_color: app.theme_cls.primary_color
+                            elevation: 10
+                            left_action_items: [["home", lambda x: root.voltar()]]
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            padding: "10dp"
+                            pos_hint: {"top": 1}
+
+                            MDGridLayout:
+                                adaptive_height: True
+                                pos_hint: {"top": 1}
+                                cols: 1
+                                padding: "25dp"
+                                spacing: "45dp"
+                                md_bg_color: app.theme_cls.primary_color
+                                radius: 25, 10, 25, 10
+
+                                MDGridLayout:
+                                    cols: 2
+
+                                    # Adding label to switch
+                                    Label:
+                                        id: sw
+                                        text: 'Modo Polegada'
+
+                                    # creating the switch
+                                    Switch:
+                                        # False means OFF and True means ON
+                                        active: False
+
+                                        # Arranging a callback to the switch
+                                        on_active: root.switch_callback(self, self.active)
+
+                                MDGridLayout:
+                                    cols: 2
+
+                                    # Adding label to switch
+                                    Label:
+                                        id: swtheme
+                                        text: 'Tema'
+
+                                    # creating the switch
+                                    Switch:
+                                        # False means OFF and True means ON
+                                        active: False
+
+                                        # Arranging a callback to the switch
+                                        on_active: app.switch_theme_style(self, self.active)
+
+
+                            MDBoxLayout:
+                                size_hint: 0.95, 0.5
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                anchor: "left"
+                padding: 0
+
+
+                ContentNavigationDrawer:
+                    screen_manager: screen_manager
+                    nav_drawer: nav_drawer
+
+
+
+
+</TelaInicial>
         
  
             
-            
-            
-                        
-    
-                        
-                    
+<ContentNavigationDrawer>:
+    md_bg_color: app.theme_cls.primary_color
+    specific_text_color: [1, 1, 1, 1]
+    orientation: "vertical"
+
+    AnchorLayout:
+        anchor_x: "left"
+        size_hint_y: None
+        height: '200dp'
+
+        canvas:
+            Color:
+                rgba: 0, 0, 0, 0.2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDBoxLayout:
+            id: top_box
+            size_hint_y: None
+            height: "200dp"
+            x: root.parent.x
+            pos_hint: {"top": 1}
+
+            FitImage:
+                source: "assets/Factor.png"
+
+        MDFloatLayout:
+
+            MDIconButton:
+                icon: "close"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                md_bg_color: 0, 0, 0, 0.5
+                x: root.parent.x + dp(10)
+                pos_hint: {"top": 0.95}
+                on_release: root.parent.set_state()
+
+            MDLabel:
+                markup: True
+                text: f"[b]CNC FACTOR[/b]\n[i]Free[/i]"
+                x: root.parent.x + dp(10)
+                y: root.height - top_box.height + dp(10)
+                size_hint_y: None
+                size_hint_x: 0.85
+                height: self.texture_size[1]
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+
+
+    ScrollView:
+
+        MDList:
+
+            OneLineIconListItem:
+                text: "[color=#ffffff]Inicio[/color]"
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 1"
+                IconLeftWidget:
+                    icon: "home"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+
+            OneLineIconListItem:
+                text: "[color=#ffffff]Configurações[/color]"
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 2"
+                IconLeftWidget:
+                    icon: "cog"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+            OneLineIconListItem:
+                text: "[color=#ffffff]Desenvolvedor[/color]"
+                IconLeftWidget:
+                    icon: "dev-to"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+            OneLineIconListItem:
+                text: "[color=#ffffff]Tema[/color]"
+                on_release: app.trocar_tema()
+                IconLeftWidget:
+                    icon: "palette"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+            OneLineIconListItem:
+                text: "[color=#ffffff]Sobre[/color]"
+                IconLeftWidget:
+                    icon: "book"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+
+
+
+<CNCMBaseDialog>
+    background: f"{images_path}/transparent.png"
+    canvas:
+        Color:
+            rgba: root.theme_cls.bg_dark
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [15,]
+
+
+<CNCMDialogChangeTheme>
+    size_hint: None, None
+    height: Window.height * 80 / 100
+    width: Window.width * 80 / 100
+
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            id: box
+            padding: "10dp"
+            spacing: "10dp"
+            size_hint_y: .35
+
+            Image:
+                source: "assets/palette.png"
+                size_hint: None, None
+                size: box.height, box.height + dp(40)
+
+            MDLabel:
+                theme_text_color: "Primary"
+                text: "Mudar Tema"
+                font_style: "Button"
+
+        RecycleView:
+            id: rv
+            key_viewclass: "viewclass"
+            key_size: "height"
+
+            RecycleBoxLayout:
+                default_size: None, dp(48)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: "vertical"
+
+
+
+<CNCMOneLineIconListItem>
+
+    IconLeftWidget:
+        icon: root.icon
+
+
+<CNCMOneLineLeftIconItem>
+
+    IconLeftWidget:
+        icon: root.icon
+
+
+<CNCMTwoLineLeftIconItem>
+
+    IconLeftWidget:
+        icon: root.icon
+
+
+<CNCMTwoLineLeftAvatarItem>
+    secondary_theme_text_color: "Custom"
+    secondary_text_color: app.theme_cls.primary_color
+
+    ImageLeftWidget:
+        source: root.icon
+
+
+<CNCMOneLineLeftAvatarItem>
+
+    ImageLeftWidget:
+        source: root.source
+
+
+<CNCMOneLineLeftWidgetItem>
+    on_release: app.theme_cls.primary_palette = root.text
+
+    LeftWidget:
+        canvas.before:
+            Color:
+                rgba: root.color
+            Ellipse:
+                pos: self.pos
+                size: self.size
